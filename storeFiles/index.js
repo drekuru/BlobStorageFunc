@@ -52,7 +52,7 @@ async function storeFiles(context, req, db, storage)
     //encode body to base64 string
     let bodyBuffer = Buffer.from(req.body);
 
-    //get boundry
+    //get boundary
     let boundary = multipart.getBoundary(req.headers['content-type']);
 
     //parse files
@@ -114,10 +114,10 @@ async function storeFiles(context, req, db, storage)
         let url = `${storageUrl}/files/${name}${storageToken}`
 
         //create this file in db collection
-        await db.collection('attachments').updateOne({ 'filename': parts[i].filename, 'orderId': req.query.orderId, 'type': req.query.type }, { $set: { 'url': url } }, { upsert: true })
+        await db.collection('attachments').updateOne({ 'filename': parts[i].filename, 'orderId': req.query.orderId }, { $set: { 'url': url } }, { upsert: true })
 
         //add file to return body
-        attachments.push({ 'url': url, 'filename': parts[i].filename, 'type': req.query.type })
+        attachments.push({ 'url': url, 'filename': parts[i].filename })
     }
 
     return { 'status': 200, 'data': attachments }
