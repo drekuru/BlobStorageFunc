@@ -1,0 +1,18 @@
+{
+  "name": "",
+  "version": "",
+  "description": "",
+  "scripts": {
+    "test": "echo \"No tests yet...\""
+  },
+  "author": "",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "moment": "^2.29.0",
+    "mongodb": "^3.6.2",
+    "parse-multipart": "^1.0.4"
+  },
+  "devDependencies": {
+    "eslint": "^7.10.0"
+  }
+}
